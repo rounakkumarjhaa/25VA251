@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in js</title>
+</head>
+<body>
+    <script>
+        //functions: A javascript function is a resuable block of code desinged to perform a specific task
+        //normal function without para
+        function demo(){
+            console.log("hello JS");
+        }
+        demo();
+        //function with para
+        function demo1(text){
+            console.log("Hello"+text);
+        }
+        demo1("JS");
+        //FUNCTION with default parameter
+        function add(a,b=5){
+            console.log("addition of two numbers: "+(a+b));
+        }
+        add(10); // b will use its default value of 5
+        add(10,20); // b will use the provided value of 20
+        //Anonymous Function: A function without a name is called an anonymous function. It is often used as a callback or assigned to a variable.it is not accessible outside of its scope.
+        let cal=function(){
+            var num1=5;
+            var num2=10;
+            var result=num1*num2;
+            console.log("multiply of num1 and num2: "+result);
+        }
+        //arrow funtion: An arrow function is a concise way to write functions in JavaScript. It uses the "=>" syntax and does not have its own "this" context.
+        let div=(x,y)=>{
+
+            var num1=x;
+            var num2=y;
+            var res=x/y;
+            console.log("Division is "+res);
+        }
+        div(12,3);
+        //single line function
+        let msg=()=>console.log("Hello ABES");
+        msg();
+        //callback function: A callback function is a function that is passed as an argument to another function and is executed after a certain event or condition is met. It allows you to handle asynchronous operations and perform actions once a task is completed.
+        function sub(callback){
+            var num1=10;
+            var num2=5;
+            var res=num1-num2;
+            callback(res);
+        }
+        function displayres(res){
+            console.log("Subtraction is "+res);
+        }
+        sub(displayres);
+        //callback using setTimeout API
+        function msg1(){
+            console.log("Hello frnd");
+        }
+        setTimeout(msg1,2000); // msg1 will be called after 2 seconds
+        //IIFE (Immediately Invoked Function Expression): An IIFE is a function that is defined and immediately executed. It is often used to create a new scope and avoid polluting the global namespace.
+        (function(a,b){
+            console.log(`First parameter ${a} and 
+            second parameter ${b}`);
+            var res=a+b;
+            console.log(⁠ Result is ${res} ⁠);
+
+        })(4,5);
+        //short code using arrow function
+        (msg=>console.log("Hello IIFE"))();
+        //PROMISES: A promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It allows you to handle asynchronous operations in a more structured way, avoiding callback hell and improving code readability.
+        let promise=new Promise(function(resolve,reject){
+            let age=17;
+            if(age>=18){
+                resolve("valid age");
+            }
+            else{
+                reject("wait for next year");
+            }
+        });
+        //console.log(promise);
+        promise.then(msg=>console.log(msg)).catch(error=>console.log(error));
+        //async await: The async/await syntax is a more modern way to handle asynchronous operations in JavaScript. It allows you to write asynchronous code that looks and behaves like synchronous code, making it easier to read and understand.
+        //an async function is defined using the "async" keyword and can contain "await" expressions, which pause the execution of the function until a promise is resolved or rejected.
+        //https://dummyhson.com/products
+        //fetch api using async await
+        async function userData(){
+            let response=await fetch('https://dummyjson.com/products');
+            let responseData=await response.json();
+            console.log(responseData);
+            console.log(response);
+            //document.writeln(responseData.id);
+
+        }
+        userData();
+        //error handling using try catch
+
+        let myInfo={
+            name:"John",
+            age:23,
+            mob:698678789,
+            eMail;"john234@gmail.com"
+        }
+        //Conver object to string using 
+        let myInfoData=JSON.stringify(myInfo);
+
+        //set data
+        localStorage.setItem('prefernce' ,myInfoData);
+
+        //Retrieving  and parsing the object back
+        let getMyInfoloData=localStorage.getItem('prefrence');
+
+        const finalData=JSON.parse(getMyInforloData);
+        console.log(finalData.name);
+
+        //Higher Order Function:-
+
+        //map() Filter() reduce() for each()
+        
+    </Script>
+</body>
+</html>
