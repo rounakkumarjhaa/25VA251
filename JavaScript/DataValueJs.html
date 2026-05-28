@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Value Types in JS</title>
+</head>
+<body>
+    <script>
+        //Primitive : Single Value (immutalbe)  
+            //String | Number | Boolean | Null | Undefined | Symbol | Bigint
+
+                let name = "Ranjan";
+                let age = 23;
+                let isMarrage = false;
+                let address = null;
+                let education;
+
+                console.log(address);
+                console.log(typeof(address));
+
+                //BigInt
+                let salery = 929482492948249248242942492424;
+                let salery1 = BigInt(929482492948249248242942492424);
+                console.log(salery1);
+
+                //Symbol
+                let name1 = "Prahallad";
+                let name2 = "Ranjan";
+                console.log(name1 == name2);
+
+                let nam = Symbol("Prahallad");
+                let name0 = Symbol("Ranjan");
+                console.log(Symbol(name0==nam));
+
+        //Non-Primitive / Reference / Object - Mutable Values
+            // Object , array , function
+
+                //Object : Is a colection of its keys and values. { }
+                let student = {
+                    name : "Vikas",
+                    age : 23, 
+                    isMarrage : true,
+                    address : {
+                        street : "Salt Lake City",
+                        City: "Kolkata",
+                        Sector : "V",
+                        Pin : 700006
+                    },
+                    course : "B.Tech",
+                    branch : "CSE",
+                    year : 2025, 
+                    getInfo : function(){
+                        return "My eduction is " + student.course + " " + student.branch + " " + "and year is " + student.year;
+                    },
+                    subject : ["math", 232]
+                };
+                console.log(student.name + " " + student.address.City + " " + student.age );
+                console.log(typeof(student));
+                console.log(student.getInfo());
+
+                //find obj properties in obj
+                console.log("name" in student);     //presnt or not
+
+                //delete obj property
+                console.log(delete student.name);
+                console.log(student)
+
+                console.log("name" in student);
+
+                //acces obj's key / properties using brackets notation 
+                console.log(student['isMarrage']);
+
+
+
+
+        
+    </script>
+
+</body>
+</html>

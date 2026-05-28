@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+<body>  
+    
+    <script>
+
+        //Normal Fn with para
+        function demo1(text){
+            console.log("HEllo " + text)
+        }
+        demo1("Ranjan!");
+        // WIthout Para
+        function demo2(){
+            console.log("Ranjan");
+        }
+        demo2();
+
+        //Functoin with Default para
+        function add(a , b=10){
+            console.log("Addition of two no is: " + (a+b));
+        }
+        add(23,20);
+
+
+        // Annoymous FUnction 
+        let cal = function(){
+            var num1 = 25;
+            var num2 = 55;
+            var res = num1 * num2;
+            console.log("MUltiply of num1 and num2 is: " + res);
+        }
+        cal();  //cal is a funtion now
+
+
+        // Arrow Function with myltiple line stetment
+        let div = (x,y)=>{ 
+            var num1 = x;
+            num2 = y;
+            var res = x/y;
+            console.log("DIv is: "+res);
+        }
+        div(12,6);
+
+        //Arrow fun with single line statement
+        let msg =()=>console.log("Hello ABES");
+        msg();
+
+
+        // Callback Function: 
+        function sub(callback){
+            var num1 = 20;
+            var num2 = 10;
+            var res = num1 - num2;
+            callback(res);
+        }
+        function displayRes(res){
+            console.log("Result is: " + res);
+        }
+        sub(displayRes);
+
+        //callback using setTimeout API
+        function msg1(){
+            console.log("Hello Friend");
+        }
+        setTimeout(msg1,2000);
+        //2000 = 2 sec
+
+        // IIFE     ()()
+        (function(a, b){
+            console.log(`First Parameter ${a} and Second para ${b}`);
+            var re = a + b;
+            console.log(`Result is ${re}`);
+        })(4, 5);
+
+        //Sort code using arrow fn 
+        (msg=>console.log("Hello IIFE"))();
+
+
+        //  Promises:-
+        //3 stages painding fullfiled and rejected
+        
+        let promise = new Promise(function(resolve, reject){
+            let age = 25;
+            if(age>=18){
+                resolve("Valid age");
+            }
+            else{
+                reject("wait for fext year");
+            }
+        });
+        console.log(promise);
+        // promise.then().catch()
+        promise
+            .then(msg=>console.log(msg))
+                .catch(error=>console.log(error));
+
+
+        //async awit.........       #inportant
+
+        //https://dummyjson.com/products
+
+        async function userData() {
+            //let response = await fetch('https://dummyjson.com/products/');
+            //let response = await fetch('https://dummyjson.com/products?limit=10&skip=10&select=title,price');
+            let response = await fetch('https://api.github.com/users/');
+            let responseData = await response.json();
+
+            console.log(responseData);
+
+            document.writeln(responseData.id);
+            documen.writeln(responseData.bio)
+        }
+        userData();
+
+
+        /*
+            //Error handling using try catch
+                try{
+                    let response = await fetch('https://api.github.com/users/ranjan');
+                    let responseData = await response.json();
+
+                    console.log(responseData);
+
+                    document.writeln(responseData.id);
+                    documen.writeln(responseData.bio);
+                }
+                catch(error){
+                    console.log(error);
+                }
+                userData();
+        */
+
+
+
+        //Local Storage
+        let myInfo = {
+            name : "Ranjan Maiti",
+            age : 19,
+            mob: 8250255505,
+            email : "Ranjanmaiti.tech@gmail.com"
+        }
+
+        //convert the obj to string using stringify
+        let myInfoData = JSON.stringify(myInfo);
+
+        //set Data
+        localStorage.setItem('prefrence' , myInfoData);
+
+        // Retrieving and parsing the object back
+        let getMyInfo = localStorage.getItem('prefrence');
+
+        //parse the object
+        const finalData = JSON.parse(getMyInfoData);
+        console.log(finalData.name);
+
+
+        // Higher Order Functiion: 
+
+
+        // map() filter() reduce() forEach()
+
+        let num = [3,5,2,6,3,6,3,9];
+        //find the squre of num
+        let result = num.map(n=>n*n);
+        console.log(`Squre of num is: ${result}`);
+
+        //find the number greater than 3
+        let result2 = num.filter(n=>n>3);
+        console.log(`Sorting of num array os ${result2}`);
+
+        //find sum of num array
+        let sum = num.reduce((total,n)=>total+n);
+        console.log(`Addition of num array elements is ${sum}`);
+
+        //find multiple of 2 elements of num array
+        let double = num.forEach(n=>n*2);
+        onclose.log(double)
+
+
+    </script>
+</body>
+</html>

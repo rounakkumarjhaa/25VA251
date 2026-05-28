@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Variable</title>
+</head>
+<body>
+    
+    <h1>JavaScript Variables</h1>
+
+    <script>
+        //variable are container in js, storage
+        var a = 10;
+        var b = 20;
+        var c = a+b;
+        console.log(c)
+
+        var myName = "Ranjan";
+        document.writeln(myName);
+        console.log(myName);
+        // JS exucation  and scope (Global and local)
+
+        function demo(){
+            var msg = "THanks"; //Local
+            console.log(msg);
+        }
+        demo();
+
+        //Var Declecation using let and const
+        let msg2 = "Hello Ranjan Maiti";
+        console.log(msg2);
+
+        const msg3= "Thanks for vissiteing my page";
+        console.log(msg3);
+
+    </script>
+</body>
+</html>

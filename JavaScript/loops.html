@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops in JS</title>
+</head>
+<body>
+    
+    <script>
+        let studentList = ["Viakas" , "Vinay" , "Vivek" , "Deepak" , "Sneha" , "Shiva"];
+
+        //For LOOP
+        for(let i=0; i<studentList.length; i++){
+            console.log(studentList[i]);
+        }
+
+        //While LOOP
+        let x = 0;
+        while(x<studentList.length){
+            console.log(studentList[x]);
+            x++;
+        }
+
+        //For OF LOOPS
+        //Iteres over the values of iterable objects (like Arrays, Strings , Maps SEts)
+        for(let y of studentList){
+            console.log(y);
+        }
+
+        //OBject Acces by LOOP
+        let mine = {
+            name: "Ranjan Maiti",
+            age : 19, 
+            mobile : 8250,
+            City : "Kolkata",
+            State : "West Bengal",
+            value : null,
+            address:{
+                streetNo: 24,
+                pin: 94994
+            }
+        };
+
+        for(i in mine){
+            console.log(mine[i]);
+        }
+
+
+
+    </script>
+</body>
+</html>
